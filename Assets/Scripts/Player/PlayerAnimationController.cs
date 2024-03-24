@@ -40,6 +40,8 @@ public class PlayerAnimationController : MonoBehaviour
 
     private void SetAnimationMove(Animator anim)
     {
+        if (!anim.gameObject.activeInHierarchy) return;
+
         // Set animator parameters based on movement input
         float horizontalMovement = moveController.Movement.x;
         float verticalMovement = moveController.Movement.y;

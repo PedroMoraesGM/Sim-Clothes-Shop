@@ -3,8 +3,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerMoveController : MonoBehaviour
 {
-    private PlayerControls controlsInput;
-
     [SerializeField] private float moveSpeed = 5f;
     private Rigidbody2D rb;
     private Vector2 movement;
@@ -12,8 +10,6 @@ public class PlayerMoveController : MonoBehaviour
 
     void Start()
     {
-        controlsInput = new PlayerControls();
-        controlsInput.Enable();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -21,8 +17,8 @@ public class PlayerMoveController : MonoBehaviour
     {
         // Input
         Vector2 move = new Vector2(0, 0);
-        float horizontal = controlsInput.Gameplay.Horizontal.ReadValue<float>();
-        float vertical = controlsInput.Gameplay.Vertical.ReadValue<float>();
+        float horizontal = ControllerHelper.Instance.Input.Gameplay.Horizontal.ReadValue<float>();
+        float vertical = ControllerHelper.Instance.Input.Gameplay.Vertical.ReadValue<float>();
 
         if (horizontal != 0)
         {
