@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerInteractionController : MonoBehaviour
 {
+    [SerializeField] private PlayerInventoryController playerInventory;
+
     [SerializeField] private LayerMask interactableLayer;
     [SerializeField] private float interactionRadius = 2f;
 
@@ -38,6 +40,7 @@ public class PlayerInteractionController : MonoBehaviour
         {
             if (currentInteractable != null)
             {
+                playerInventory.CloseInventory();
                 currentInteractable.Interact();
             }
         }

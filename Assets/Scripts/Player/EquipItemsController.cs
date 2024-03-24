@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EquipItemsController : MonoBehaviour
 {
-    [SerializeField] PlayerData playerData;
     [SerializeField] Animator legsAnimator, shoesAnimator, shirtAnimator, headAnimator;
     private Dictionary<EquipableItemType, Animator> equipAnimators = new Dictionary<EquipableItemType, Animator>();
 
@@ -24,10 +23,10 @@ public class EquipItemsController : MonoBehaviour
 
     private void UpdateItemAnimatorController(EquipableItemType itemType)
     {
-        if (playerData.EquippedItems.ContainsKey(itemType))
+        if (PlayerData.Instance.EquippedItems.ContainsKey(itemType))
         {
             equipAnimators[itemType].gameObject.SetActive(true);
-            equipAnimators[itemType].runtimeAnimatorController = ItemsData.Instance.AllItems[itemType][playerData.EquippedItems[itemType].Index].ItemAnimator;
+            equipAnimators[itemType].runtimeAnimatorController = ItemsData.Instance.AllItems[itemType][PlayerData.Instance.EquippedItems[itemType].Index].ItemAnimator;
         }
         else
             equipAnimators[itemType].gameObject.SetActive(false);
@@ -40,16 +39,16 @@ public class EquipItemsController : MonoBehaviour
         itemData.Index = index;
         itemData.Type = itemType;
 
-        if (!playerData.EquippedItems.ContainsKey(itemType))
-            playerData.EquippedItems.Add(itemType, itemData);
+        if (!PlayerData.Instance.EquippedItems.ContainsKey(itemType))
+            PlayerData.Instance.EquippedItems.Add(itemType, itemData);
         else
         {
-            previousEquipment = playerData.EquippedItems[itemType];
+            previousEquipment = PlayerData.Instance.EquippedItems[itemType];
 
-            playerData.EquippedItems[itemType] = itemData;
+            PlayerData.Instance.EquippedItems[itemType] = itemData;
         }
 
-        playerData.SaveEquippedItemsData();
+        PlayerData.Instance.SaveEquippedItemsData();
 
         UpdateItemAnimatorController(itemType);
 
@@ -60,11 +59,11 @@ public class EquipItemsController : MonoBehaviour
     {
         EquipableItemData previousEquipment = null;
 
-        if (!playerData.EquippedItems.ContainsKey(itemType)) return previousEquipment;
+        if (!PlayerData.Instance.EquippedItems.ContainsKey(itemType)) return previousEquipment;
 
-        previousEquipment = playerData.EquippedItems[itemType];
-        playerData.EquippedItems.Remove(itemType);
-        playerData.SaveEquippedItemsData();
+        previousEquipment = PlayerData.Instance.EquippedItems[itemType];
+        PlayerData.Instance.EquippedItems.Remove(itemType);
+        PlayerData.Instance.SaveEquippedItemsData();
 
         UpdateItemAnimatorController(itemType);
 

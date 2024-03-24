@@ -29,9 +29,9 @@ MonoBehaviour:
     referenceMode: 2
     serializationDepthLimit: 64
     assemblyNames:
-    - Purchasing.Common
-    - Assembly-CSharp
     - Assembly-CSharp-firstpass
+    - Assembly-CSharp
+    - Purchasing.Common
     - PsdPlugin
     - PPv2URPConverters
     - Analytics

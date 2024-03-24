@@ -8,7 +8,7 @@ public class EquipableItem
 {
     public string Name;
     public Sprite Icon;
-    public float Price;
+    public int Price;
     public EquipableItemType Type;
     public AnimatorOverrideController ItemAnimator;
     public int Index;

@@ -8,9 +8,15 @@ public class PlayerData : MonoBehaviour
     public List<EquipableItemData> EquipableItemsInventory = new List<EquipableItemData>();
     public int Money = 50000;
 
+    public static PlayerData Instance;
 
     private void Awake()
     {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(this.gameObject);
+
         LoadEquippedItemsData();
         LoadInventoryData();
         LoadMoneyData();
@@ -23,7 +29,7 @@ public class PlayerData : MonoBehaviour
 
     public void LoadEquippedItemsData()
     {
-        EquippedItems = ES3.Load(DataKeys.PlayerEquippedItemsDic, EquippedItems);
+        EquippedItems = ES3.Load(DataKeys.PlayerEquippedItemsDic, new Dictionary<EquipableItemType, EquipableItemData>());
     }
 
     public void SaveInventoryData()
@@ -33,7 +39,7 @@ public class PlayerData : MonoBehaviour
 
     public void LoadInventoryData()
     {
-        EquipableItemsInventory = ES3.Load(DataKeys.PlayerInventoryList, EquipableItemsInventory);
+        EquipableItemsInventory = ES3.Load(DataKeys.PlayerInventoryList, new List<EquipableItemData>());
     }
 
     public void SaveMoneyData() 
@@ -44,5 +50,14 @@ public class PlayerData : MonoBehaviour
     public void LoadMoneyData()
     {
         Money = ES3.Load(DataKeys.PlayerMoney, Money);
+    }
+
+    public void AddMoney(int value)
+    {
+        Money += value;
+        if (Money < 0)
+            Money = 0;
+
+        SaveMoneyData();
     }
 }

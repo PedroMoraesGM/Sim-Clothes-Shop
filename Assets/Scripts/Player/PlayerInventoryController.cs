@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerInventoryController : MonoBehaviour
 {
-    [SerializeField] PlayerData playerData;
+    [SerializeField] PlayerInteractionController interactionController;
     [SerializeField] EquipItemsController equipItemsController;
 
     [SerializeField] private GameObject inventoryScreen;
@@ -30,14 +30,24 @@ public class PlayerInventoryController : MonoBehaviour
         {
             ToggleInventory();
         }
+
+        if (ControllerHelper.Instance.Input.Gameplay.Cancel.triggered)
+        {
+            CloseInventory();
+        }
+    }
+
+    public void CloseInventory()
+    {
+        inventoryScreen.SetActive(false);
+        CleanInventory();
     }
 
     public void ToggleInventory()
     {
         if (inventoryScreen.activeSelf)
         {
-            inventoryScreen.SetActive(false);
-            CleanInventory();
+            CloseInventory();
         }
         else
         {
@@ -59,7 +69,7 @@ public class PlayerInventoryController : MonoBehaviour
     {
         CleanInventory();
 
-        foreach (var item in playerData.EquipableItemsInventory)
+        foreach (var item in PlayerData.Instance.EquipableItemsInventory)
         {
             InventoryItemHolder newItem = Instantiate(inventoryItemHolderPrefab, inventoryScroll.content);
             newItem.InitItem(item, this);
@@ -75,7 +85,7 @@ public class PlayerInventoryController : MonoBehaviour
             item.Value.gameObject.SetActive(false);
         }
 
-        foreach (var item in playerData.EquippedItems)
+        foreach (var item in PlayerData.Instance.EquippedItems)
         {
             equipImages[item.Key].gameObject.SetActive(true);
             equipImages[item.Key].sprite = ItemsData.Instance.AllItems[item.Key][item.Value.Index].Icon;
@@ -85,14 +95,14 @@ public class PlayerInventoryController : MonoBehaviour
     public void EquipItem(EquipableItemData inventoryItemData)
     {
         EquipableItemData prevItem = equipItemsController.EquipNewItem(inventoryItemData.Type, inventoryItemData.Index);
-        playerData.EquipableItemsInventory.Remove(inventoryItemData);
+        PlayerData.Instance.EquipableItemsInventory.Remove(inventoryItemData);
         
         if (prevItem != null) // Check if has swap Item
         {
-            playerData.EquipableItemsInventory.Add(prevItem);
+            PlayerData.Instance.EquipableItemsInventory.Add(prevItem);
         }
 
-        playerData.SaveInventoryData();
+        PlayerData.Instance.SaveInventoryData();
 
         LoadInventory();
     }
@@ -102,8 +112,8 @@ public class PlayerInventoryController : MonoBehaviour
         EquipableItemData prevItem = equipItemsController.UnequipItem((EquipableItemType)type);
         if (prevItem != null)
         {
-            playerData.EquipableItemsInventory.Add(prevItem);
-            playerData.SaveInventoryData();
+            PlayerData.Instance.EquipableItemsInventory.Add(prevItem);
+            PlayerData.Instance.SaveInventoryData();
 
             LoadInventory();
         }

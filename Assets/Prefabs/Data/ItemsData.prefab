@@ -1,0 +1,134 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8804539478947938979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8804539478947938977}
+  - component: {fileID: 8804539478947938976}
+  m_Layer: 0
+  m_Name: ItemsData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8804539478947938977
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8804539478947938979}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8804539478947938976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8804539478947938979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd30a8804e080b843b23da8cefff9932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  legsItems:
+  - Name: Blue Pants
+    Icon: {fileID: 953329272, guid: 741ad0496db02d249bbd4ad3d2acd873, type: 3}
+    Price: 1400
+    Type: 1
+    ItemAnimator: {fileID: 22100000, guid: b9e506882be72d940b61182f342ff7df, type: 2}
+    Index: 0
+  - Name: Yellow Pants
+    Icon: {fileID: 953329272, guid: 1d98cdd42e6915b4391b5676dc314180, type: 3}
+    Price: 1400
+    Type: 1
+    ItemAnimator: {fileID: 22100000, guid: 6df9b77b429845d4d8225c818b733f8b, type: 2}
+    Index: 1
+  - Name: Red Pants
+    Icon: {fileID: 953329272, guid: ab42f70013b4950419ac02999dc21674, type: 3}
+    Price: 1400
+    Type: 1
+    ItemAnimator: {fileID: 22100000, guid: c816ee3d5c88c1d4582dc07538320030, type: 2}
+    Index: 2
+  shoesItems:
+  - Name: Yellow Shoes
+    Icon: {fileID: 1627093800, guid: 8f7a0ce6a6c765a40981002e042ee730, type: 3}
+    Price: 2000
+    Type: 2
+    ItemAnimator: {fileID: 22100000, guid: b4e44f679d1f2a24a9b4d4a534d18bcf, type: 2}
+    Index: 0
+  - Name: Purple Shoes
+    Icon: {fileID: 1627093800, guid: 84f11dd017794f549b0ab2560187317c, type: 3}
+    Price: 2000
+    Type: 2
+    ItemAnimator: {fileID: 22100000, guid: b665b6f1f7fb11148a1316cfcccfbeae, type: 2}
+    Index: 1
+  shirtItems:
+  - Name: Green Shirt
+    Icon: {fileID: -1652436627, guid: 0f3b2d62202f6ce46989c8374944180c, type: 3}
+    Price: 1600
+    Type: 3
+    ItemAnimator: {fileID: 22100000, guid: f21b557ca6d1e37468b9dd6ef1471ec6, type: 2}
+    Index: 0
+  - Name: Blue Shirt
+    Icon: {fileID: -1652436627, guid: f384be72b7f915041bda460741d20df0, type: 3}
+    Price: 1600
+    Type: 3
+    ItemAnimator: {fileID: 22100000, guid: d463b31a90e895148a153c96381bd681, type: 2}
+    Index: 1
+  - Name: Red Shirt
+    Icon: {fileID: -1652436627, guid: 5083c1ce09fe45449b5ab0356f3c8f7a, type: 3}
+    Price: 1600
+    Type: 3
+    ItemAnimator: {fileID: 22100000, guid: 8f98732cbeca27b4782be7bea483db0f, type: 2}
+    Index: 2
+  - Name: White Shirt
+    Icon: {fileID: -1652436627, guid: c6eff8f5b02409e41bdb5fb177fd5310, type: 3}
+    Price: 1600
+    Type: 3
+    ItemAnimator: {fileID: 22100000, guid: 4ec5f56f33ad0644db3c12268db45c81, type: 2}
+    Index: 3
+  headItems:
+  - Name: Magic Hat
+    Icon: {fileID: -2086903113, guid: 81ff36e3dd29597488b4506433da430b, type: 3}
+    Price: 1500
+    Type: 4
+    ItemAnimator: {fileID: 22100000, guid: 8a04e4db0108d414897c269b2950401b, type: 2}
+    Index: 0
+  - Name: Aqua Hat
+    Icon: {fileID: -2086903113, guid: 494cc473870bb264f8410568ff9321fa, type: 3}
+    Price: 1500
+    Type: 4
+    ItemAnimator: {fileID: 22100000, guid: 0fd05c9fd9193d240bc86f70b88db245, type: 2}
+    Index: 1
+  - Name: Golden Hat
+    Icon: {fileID: -2086903113, guid: 4f527b587e5f6694cb118fe00b6fdc9c, type: 3}
+    Price: 1500
+    Type: 4
+    ItemAnimator: {fileID: 22100000, guid: b9416f033843eb746a581b2f7aa9d531, type: 2}
+    Index: 2
+  - Name: Grass Hat
+    Icon: {fileID: -2086903113, guid: c9a6eb9a7a282ae48bedd2ea40d2722c, type: 3}
+    Price: 1500
+    Type: 4
+    ItemAnimator: {fileID: 22100000, guid: 64af233c779945440bad55a83fbec82f, type: 2}
+    Index: 3
+  - Name: NIght Hat
+    Icon: {fileID: -2086903113, guid: ba8f7700440f3ba4486bb238eb149fca, type: 3}
+    Price: 1500
+    Type: 4
+    ItemAnimator: {fileID: 22100000, guid: 86e74f760f28fea46bffa55fd27b10b5, type: 2}
+    Index: 4
